@@ -1,0 +1,44 @@
+1- phát triển rthêm phần ghim sách để có thể chọn ghim nhiều múc khác nhau
+2 - phải update thêm bảng nổi để nhập nhanh danh mục và tác giả
+3 - cần thay các cửa sổ trong admin bằng link để dễ quản lý
+
+4 - update sách 
+    + thêm 1 ô những mục có thể thay đổi và những mục ko thể thay đổi
+    Mục có thể thay đổi:
+        - Có lỗi
+        - SL còn lại
+        - Bộ sách
+    Mục không thể thay đổi:
+        - Lượt lưu
+        - Lượt xem
+        - lượt thích
+        - CreateAt
+        - UpdateAt
+        
+5 - sửa phần lỗi sách 
+
+---- 18/11/2024----
+https://www.youtube.com/watch?v=56eeMzYjLYI&list=PLYWs26O28YeOVy8psqRUjB8sjYx1XY4fL&index=7
+chitietmuonsach: 
+chỉnh lại các trạng thái thành tiếng việt (ChiTietMuonSach, PhieuPhat)
+MuonSach: 
+
+
+Tài liệu https://www.vnulib.edu.vn/index.php/muon-tra-tai-lieu-tvtt
+
+---- 7/12/2024---- chưa làm
+6 - Thêm
+Xem chi tiết sách.
+Xác nhận mượn sách, xác nhận tạo tài khoản.
+
+---- 10/12/2024---- chưa làm
+sửa lại cập nhật thời gian trong mượn sách ngày trả dự kiến, ngày trả thực ...
+không cho chọn trùng sách
+nếu đang mượn sách chưa trả thì ko cho mượn sách
+nếu tài khoản đang bị ghi nợ thì ko cho mượn sách
+
+<?php
+echo "<pre>";
+print_r($muonsach);
+echo "</pre>";
+?>

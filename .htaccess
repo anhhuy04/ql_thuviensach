@@ -1,0 +1,28 @@
+RewriteEngine On
+RewriteBase /do_an_quanlythuvien/
+
+# Điều kiện: Không phải là một tệp hoặc thư mục
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Quy tắc ưu tiên chuyển hướng /login đến View/User/Home/login.php
+RewriteRule ^login$ View/User/Home/login.php [L]
+
+RewriteRule ^quenmatkhau$ View/User/Home/quen-mk.php [L]
+
+RewriteRule ^Admin/([^/]+)/([^/]+)/([^/]+)$ View/Admin/index.php?mod=$1&act=$2&id=$3 [L,QSA]
+
+# Quy tắc chuyển hướng URL bắt đầu bằng /Admin đến Admin/index.php với tham số mod và act
+RewriteRule ^Admin/([^/]+)/([^/]+)$ View/Admin/index.php?mod=$1&act=$2 [L,QSA]
+
+# Search
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/page/([^/]+)$ index.php?mod=$1&act=$2&keyword=$3&page=$4 [L]
+
+#Chi tiết sách
+RewriteRule ^([^/]+)/detail/([^/]+)$ index.php?mod=$1&act=detail&id=$2 [L,QSA]
+
+# danhmuc
+RewriteRule ^([^/]+)/danh-muc/([^/]+)$ index.php?mod=$1&act=danh-muc&id=$2 [L,QSA]
+
+# Quy tắc chung để chuyển hướng các URL khác đến index.php
+RewriteRule ^([^/]+)/([^/]+)$ index.php?mod=$1&act=$2 [L,QSA]

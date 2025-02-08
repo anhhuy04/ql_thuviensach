@@ -1,0 +1,519 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e2e2e21f;
+  justify-content: space-between;
+}
+div {
+  display: block;
+  unicode-bidi: isolate;
+}
+:root {
+  --blue: #287bff;
+  --white: #fff;
+  --grey: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+  --color-white: #fff;
+  --color-header: #212529;
+  --color-background-cursor: #444;
+  --color-btn: #71be34;
+}
+
+.px-4 {
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
+}
+/* hiện trang */
+.hienten{
+  display: flex;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  align-items: flex-end;
+  flex-grow: 1;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 50px !important;
+}
+nav a i {
+  padding: 0 10px 0 30px;
+}
+.sb-topnav .navbar-brand {
+  width: 225px;
+  margin: 0;
+}
+
+.btn-link{
+  color: var(--black2) !important;
+}
+
+/* thanh bên */
+.leftmain{
+  padding-top: 56px;
+}
+
+.sb-sidenav-dark {
+  background-color: #212529;
+  color: rgba(255, 255, 255, 0.5);
+}
+.sb-sidenav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-wrap: nowrap;
+}
+.fixed-top,
+.sb-nav-fixed #layoutSidenav #layoutSidenav_nav,
+.sb-nav-fixed .sb-topnav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+/* Thanh cuộn bên navbar */
+.sb-sidenav-menu {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+.sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
+  width: 225px;
+  height: 100vh;
+  transition: all 0.35s ease-in-out;
+  z-index: 1038;
+}
+.sb-sidenav-menu::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.sb-sidenav-menu:hover::-webkit-scrollbar {
+  width: 6px; /*Hiện thanh cuộn dọc */
+  height: 12px; /*Hiện thanh cuộn ngang */
+  padding-left: 0px;
+}
+.sb-sidenav-menu::-webkit-scrollbar-thumb {
+  background: #555; /*Màu phần cuộn */
+  border-radius: 10px; /*Bo tròn thanh cuộn */
+}
+.sb-sidenav-menu::-webkit-scrollbar-track {
+  background: var(--color-background); /*Màu nền thanh cuộn */
+  border-radius: 10px; /*Bo tròn phần nền */
+}
+
+.sb-sidenav-menu::-webkit-scrollbar-thumb:hover {
+  background: #888; /*Màu phần cuộn khi hover */
+}
+.layoutSidenav_nav{
+  width: 100%;
+  height: 100vh;
+  background-color: var(--black1);
+}
+#layoutSidenav{
+  display: flex;
+  width: 100%;
+}
+#layoutSidenav_main.collapsed{
+  padding-left: 56px !important;
+}
+#layoutSidenav_nav.collapsed{
+  width:56px !important;
+}
+
+/* nội dung */
+.layoutSidenav_nav_content {
+  --bs-nav-link-padding-x: 1rem;
+  --bs-nav-link-padding-y: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+/* setting nội dung thanh nav */
+.content-link-icon{
+  font-size: 17px;
+}
+.content-link-icon a{
+  padding: 15px;
+  width: 250px;
+}
+.content-link-icon a i{
+  margin-right: 1rem;
+  min-width: 25px;
+  text-align: center;
+}
+.content-link-icon a:hover {
+  color: var(--white);
+}
+/* menu chính */
+
+#layoutSidenav #layoutSidenav_main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  flex-grow: 1;
+  min-height: calc(100vh - 56px);
+  transition: all 0.35s ease-in-out;
+}
+.sb-nav-fixed #layoutSidenav #layoutSidenav_main {
+  padding-left: 225px;
+  top: 56px;
+}
+.container-fluid{
+  padding: 5px;
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+}
+/* thanh tabs trang Quản lý sách*/
+.tabs{
+  background-color: var(--color-header);
+}
+.nav-tabs .nav-link {
+  color: var(--black2); /* Màu mặc định cho chữ */
+  text-decoration: none;
+}
+.nav-tabs .nav-link:hover {
+  color: var(--white); /* Màu khi hover vào tab */
+  background-color: var(--color-background-cursor);
+  border-color: var(--color-background-cursor) !important;
+  border-bottom-color: rgba(245, 245, 220, 0)!important;
+}
+.nav-tabs .nav-link.active:hover {
+  color: var(--black1) !important; /* Màu khi hover vào tab */
+  background-color: var(--white);
+  border-color: var(--white) !important;
+  border-bottom-color: rgba(245, 245, 220, 0)!important;
+}
+/* Quản lý sách */
+.table th, .table td{
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+.img-sach img {
+  width: 70px; /* Đảm bảo hình ảnh không rộng hơn ô */
+  height: auto;    /* Giữ tỷ lệ khung hình */
+  height: 100px; /* Đặt chiều cao tối đa để tránh quá lớn */
+}
+
+.leftmain .nav-link.active{
+  color: white !important;
+}
+input[type="text"],
+input[list] {
+    -webkit-appearance: none; /* Bỏ ẩn mũi tên trên Safari */
+    -moz-appearance: none;    /* Bỏ ẩn mũi tên trên Firefox */
+    appearance: none;         /* Bỏ ẩn mũi tên trên các trình duyệt khác */
+}
+
+.user-login{
+  margin: auto 50px auto 20px;
+
+}
+.user-login.a-img{
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.a-img span{
+  color: white;
+  margin-left: 5px;
+  padding: 0 !important;
+}
+/* Định dạng hình ảnh tròn */
+.user-img {
+    width: 40px; /* Điều chỉnh kích thước hình ảnh */
+    height: 40px;
+    object-fit: cover; /* Giữ tỷ lệ hình ảnh */
+    border-radius: 50%; /* Làm tròn hình ảnh */
+    border: 2px solid transparent; /* Tùy chọn thêm viền */
+
+}
+.user-login ul li .nav-link{
+  padding: 0 !important;
+}
+.nav-link:hover .user-img {
+    border-color: var(--color-white); /* Màu viền khi hover */
+}
+.user-login_dropdown-custom{
+  width: 300px;
+  right: -20px !important;
+  padding: 5px !important;
+  background-color: #232425 !important;
+  color: var(--color-white) !important;
+  box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.236);
+}
+
+.user-login_dropdown-custom a {
+  background-color: #232425 !important;
+  color: var(--color-white) !important;
+  height: 2.5rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.user-login_dropdown-custom .a_user-child{
+  height: 3.5rem; 
+  padding: 10px !important;
+  margin: 10px 10px 20px;
+  text-decoration: none;
+  box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.364);
+}
+.user-login_dropdown-custom .a_user-child span{
+  margin-left: 10px;
+}
+.user-login_dropdown-custom a:hover {
+  background-color: #3A3B3C !important;
+}
+.user-login_dropdown-custom .dropdown-divider{
+  background-color: var(--color-background-cursor) !important;
+}
+
+.ghim-tabs{
+  position: sticky;
+  top: 56px;
+  z-index: 1000;
+}
+
+/* bảng xem */
+    /* Đảm bảo bảng có bố cục cố định */
+    .table-fixed {
+      table-layout: fixed;
+      width: 100%;
+  }
+  
+  /* Đặt các cột cần thu gọn khi nội dung dài */
+  .truncate-fixed-height {
+    max-height: 80px;             /* Giới hạn chiều cao tối đa là 50px */
+    line-height: 1.5em;           /* Thiết lập chiều cao mỗi dòng */
+    overflow: hidden;             /* Ẩn nội dung tràn */
+    display: -webkit-box;         /* Hiển thị dưới dạng hộp flex (chỉ trên webkit) */
+    -webkit-box-orient: vertical; /* Đặt hướng cắt theo chiều dọc */
+    text-overflow: ellipsis;      /* Thêm dấu "..." */
+    -webkit-line-clamp: 3;        /* Giới hạn tối đa 3 dòng */
+  }
+/* Form nhập thêm sách mới  */
+.hang1_table {
+  white-space: nowrap;         /* Ngăn nội dung xuống dòng */
+  overflow: hidden;             /* Ẩn nội dung tràn */
+  text-overflow: ellipsis;      /* Thêm dấu "..." */ 
+}
+.form-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.shadou-btn{
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.336);
+}
+.preview-img {
+  width: 250px;
+  height: 400px;
+  background-size: cover; /* Căn ảnh vừa khung mà không biến dạng */
+  background-position: center;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+.preview-img-user {
+  width: 250px;
+  height: 250px;
+  background-size: cover; /* Căn ảnh vừa khung mà không biến dạng */
+  background-position: center;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+.input-group img {
+  width: 100%;
+}
+
+
+.form-section-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.container-fluid.px-4 {
+  min-height: 87vh; /* Điều chỉnh chiều cao theo nhu cầu, ví dụ 80% chiều cao màn hình */
+  overflow-y: auto; /* Cho phép cuộn dọc */
+  overflow-x: hidden; /* Ẩn cuộn ngang (nếu không cần thiết) */
+  padding-right: 15px; /* Đảm bảo đủ khoảng trống để hiển thị thanh cuộn mà không bị cắt */
+}
+
+/* Để điều chỉnh form thêm sách hiển thị trong vùng cuộn, không cuộn toàn bộ trang */
+.form-container {
+  max-width: 100%; /* Đảm bảo form chiếm đủ chiều rộng vùng chứa */
+}
+
+#mainContent .form-label{
+  margin: 10px 0 0 0px ;
+}
+/* btn thêm sách --- quản lý sách*/
+.btn_custom_arrow_right{
+  color: #287bff !important;
+  margin-left: 5px;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.btn_custom_arrow_right:hover{
+  opacity: 0.8;
+}
+.btn_custom_arrow_right:hover i{
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+
+.btn_custom_arrow_left{
+  color: #287bff !important;
+  margin-left: 5px;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  display: flex;
+  position: absolute;             
+  align-items: center;
+  border: none;
+}
+.btn_custom_arrow_left:hover{
+  opacity: 0.8;
+}
+.btn_custom_arrow_left:hover i{
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+.btn_custom_arrow_left i,.btn_custom_arrow_right i{
+  margin: 0 4px;
+}
+.header-row {
+  position: relative;              /* Để button có thể định vị tuyệt đối trong container */
+  margin-bottom: 30px;
+}
+
+.header-row h2 {
+  margin: 0;                       /* Xóa khoảng cách mặc định của h2 */
+}
+#btn-go_xemdanhsach, #btn-go_xemdm {
+  position: absolute;              /* Đặt button lên trên h2 */
+  left: 0;                         /* Đặt nút về phía bên trái của dòng */
+  top: 50%;                        /* Căn giữa theo chiều dọc */
+  transform: translateY(-50%);     /* Điều chỉnh vị trí cho đúng giữa dòng */
+}
+/* bảng tác giả  */
+@media (min-width: 941px) {
+  .col-stt{
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .col-matg{
+    width: 200px;
+  }
+  .col-tentg{
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+}
+@media (max-width: 940px) {
+  table th, table td {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.multi-select-container {
+  position: relative;
+}
+.multi-select-menu {
+  background-color: #fdfdfdf8 !important;
+  margin: 5px 10px;
+  position: absolute;
+  top: 100%;
+  width: 660px;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 1000;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+.multi-select-menu-tacgia{
+  left: 0;
+}
+.multi-select-menu-danhmuc{
+  right: 0;
+}
+.multi-select-menu label {
+  min-width: 100px;
+  max-width: 150px;
+  margin: 3px;
+}
+
+/* trang mượn sách  */
+/* boder + tiêu đề */
+.border-title {
+  position: absolute;
+  top: -15px; /* Điều chỉnh vị trí dọc */
+  left: 15px; /* Điều chỉnh vị trí ngang */
+  background-color: white; /* Nền trắng để che viền */
+  padding: 0 10px; /* Tạo khoảng cách chữ */
+  font-size: 1rem;
+}
+.position-relative {
+  padding: 20px; /* Tạo khoảng cách nội dung bên trong khung */
+}
+
+.stats-container {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 30px;
+}
+.card-custom {
+  border: none;
+  width: 23rem;
+  height: 9.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.card {
+  transition: transform 0.3s ease;
+}
+.card.card-custom:hover {
+  transform: scale(1.05);
+}
+.icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
